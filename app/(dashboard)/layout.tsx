@@ -1,3 +1,5 @@
+import NewTodoForm from '@/components/NewTodoForm'
+
 interface Props {
   children: React.ReactNode
 }
@@ -5,7 +7,10 @@ interface Props {
 function DashboardLayout({ children }: Props) {
   return (
     <div>
-      <h2>dashboard layout</h2>
+      <h2>dashboard</h2>
+      <div>
+        <NewTodoForm />
+      </div>
       <div>{children}</div>
     </div>
   )
