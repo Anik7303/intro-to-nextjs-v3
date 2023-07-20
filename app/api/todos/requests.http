@@ -1,0 +1,29 @@
+@baseurl = http://localhost:3000/api/todos
+
+### fetch all todos
+# @name todos
+GET {{baseurl}}/
+
+@todoId = {{todos.response.body.todos[0].id}}
+
+### fetch a single todo by id
+GET {{baseurl}}/{{todoId}}
+
+### create new todo
+POST {{baseurl}}/
+Content-Type: application/json
+
+{
+  "content": "say hello to rest-client"
+}
+
+### update todo
+PATCH {{baseurl}}/{{todoId}}
+Content-Type: application/json
+
+{
+  "completed": false
+}
+
+### delete todo by id
+DELETE {{baseurl}}/{{todoId}}

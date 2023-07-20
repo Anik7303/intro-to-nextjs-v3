@@ -15,3 +15,14 @@ export const createTodo = async (formData: FormData) => {
 
   revalidatePath('/todos')
 }
+
+export const setTodoStatus = async (id: string, completed: boolean = true) => {
+  await db.todo.update({
+    where: { id },
+    data: {
+      completed: completed,
+    },
+  })
+
+  revalidatePath('/todos')
+}
